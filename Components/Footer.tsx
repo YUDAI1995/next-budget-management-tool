@@ -1,4 +1,4 @@
-import styles from "../css/Footer.module.scss";
+import styles from "../styles/Footer.module.scss";
 
 export const Footer: React.FC = () => {
   return (

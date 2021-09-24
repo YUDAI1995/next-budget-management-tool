@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import classNames from 'classnames';
-import { BalanceType, balanceType } from '../Model/budget.model';
+import { BalanceType, balanceType } from '../Models/budget.model';
 import 'react-datepicker/dist/react-datepicker.css';
-import '../css/InputForm.scss';
+import styles from  '../styles/InputForm.module.scss';
 
 interface InputFormProps {
     onSubmitHandler: (
@@ -44,10 +44,10 @@ export const InputForm: React.FC<InputFormProps> = (props) => {
     }
 
     return (
-        <section className="inputFormSection">
+        <section className={styles.inputFormSection}>
             <h2>入力</h2>
             <form onSubmit={newItemSubmitHandler}>
-                <ul className="tabList">
+                <ul className={styles.tabList}>
                     {balanceType.map((type, index) => (
                         <li
                             key={index}
@@ -61,7 +61,7 @@ export const InputForm: React.FC<InputFormProps> = (props) => {
                     ))}
                 </ul>
 
-                <div className={classNames('inputAmount', 'input')}>
+                <div className={classNames(styles.inputAmount, styles.input)}>
                     <label htmlFor="amount">金額</label>
                     <input
                         type="number"
@@ -71,7 +71,7 @@ export const InputForm: React.FC<InputFormProps> = (props) => {
                     />
                 </div>
 
-                <div className={classNames('inputContent', 'input')}>
+                <div className={classNames(styles.inputContent, styles.input)}>
                     <label htmlFor="content">内容</label>
                     <input
                         type="text"
@@ -81,7 +81,7 @@ export const InputForm: React.FC<InputFormProps> = (props) => {
                     />
                 </div>
 
-                <div className={classNames('inputDate', 'input')}>
+                <div className={classNames(styles.inputDate, styles.input)}>
                     <label htmlFor="content">日付</label>
                     <DatePicker
                         dateFormat="yyyy/MM/dd"
@@ -90,7 +90,7 @@ export const InputForm: React.FC<InputFormProps> = (props) => {
                         onChange={(date: Date) => onChangeDateHandler(date)}
                     />
                 </div>
-                <button type="submit" className="submitBtn">
+                <button type="submit" className={styles.submitBtn}>
                     追加する
                 </button>
             </form>
